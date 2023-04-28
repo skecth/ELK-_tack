@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<h1>Purchase orders</h1>
+
+<%= form_with url: search_path, method: :get do |form|%>
+    <%=form.text_field :search, placeholder: "Search"%>
+    <%=form.submit "Search"%>
+
+<%end%>
+
+<div id="purchase_orders">
+ <%= render "purchase_orders/po", purchase_orders: @purchase_orders %>
+</div>
+
+<%= link_to "New purchase order", new_purchase_order_path %>
+<%= link_to "Back to purchase order", root_path %>
